@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\images\sentiment_dissatisfied_blue_24dp.png" />
+    <Content Remove="wwwroot\images\sentiment_neutral_black_24dp.png" />
+    <Content Remove="wwwroot\images\sentiment_neutral_blue_24dp.png" />
+    <Content Remove="wwwroot\images\sentiment_satisfied_black_24dp.png" />
+    <Content Remove="wwwroot\images\sentiment_satisfied_blue_24dp.png" />
+    <Content Remove="wwwroot\images\sentiment_very_dissatisfied_black_24dp.png" />
+    <Content Remove="wwwroot\images\sentiment_very_satisfied_blue_24dp.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="wwwroot\images\sentiment_very_satisfied_blue_24dp.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\images\sentiment_dissatisfied_blue_24dp.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="wwwroot\images\sentiment_neutral_black_24dp.png" />
+    <None Include="wwwroot\images\sentiment_neutral_blue_24dp.png" />
+    <None Include="wwwroot\images\sentiment_satisfied_black_24dp.png" />
+    <None Include="wwwroot\images\sentiment_satisfied_blue_24dp.png" />
+    <None Include="wwwroot\images\sentiment_very_dissatisfied_black_24dp.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Feedback.Shared\Feedback.Shared.csproj" />
+  </ItemGroup>
+
+
+
+</Project>

@@ -1,0 +1,180 @@
+﻿/*.input-hidden {
+    position: absolute;
+    left: -9999px;
+}
+
+input[type=radio]:checked + label > img {
+    border: 1px solid #fff;
+    box-shadow: 0 0 3px 3px #090;
+    background-image: url(images/)
+}*/
+
+/* Stuff after this is only to make things more pretty */
+/*input[type=radio] + label > img {
+    border: 1px dashed #444;
+    width: 150px;
+    height: 150px;
+    transition: 500ms all;
+}
+
+input[type=radio]:checked + label > img {
+    transform: rotateZ(-10deg) rotateX(10deg);
+}*/
+
+/*
+ | //lea.verou.me/css3patterns
+ | Because white bgs are boring.
+*/
+/*html {
+    background-color: #fff;
+    background-size: 100% 1.2em;
+    background-image: linear-gradient( 90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px ), linear-gradient( #eee .1em, transparent .1em );
+}*/
+
+.selector {
+    cursor: pointer !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none;
+    appearance: none !important;
+    border-radius: 50% !important;
+    width: 40px !important;
+    height: 40px !important;
+    position: absolute !important;
+    z-index: 1;
+}
+
+.FEEBACK01 {
+    background-image: url(images/sentiment_very_dissatisfied_black_24dp.png);    
+}
+
+.FEEBACK02 {
+    background-image: url(images/sentiment_dissatisfied_black_24dp.png);
+}
+
+.FEEBACK03 {
+    background-image: url(images/sentiment_neutral_black_24dp.png);
+}
+
+.FEEBACK04 {
+    background-image: url(images/sentiment_satisfied_black_24dp.png);
+}
+
+.FEEBACK05 {
+    background-image: url(images/sentiment_very_satisfied_black_24dp.png);
+}
+
+
+.selector:checked + .FEEBACK01 {
+    background-image: url(images/sentiment_very_dissatisfied_blue_24dp.png);
+}
+
+.selector:checked + .FEEBACK02 {
+    background-image: url(images/sentiment_dissatisfied_blue_24dp.png);
+}
+
+.selector:checked + .FEEBACK03 {
+    background-image: url(images/sentiment_neutral_blue_24dp.png);
+}
+
+.selector:checked + .FEEBACK04 {
+    background-image: url(images/sentiment_satisfied_blue_24dp.png);
+}
+
+.selector:checked + .FEEBACK05 {
+    background-image: url(images/sentiment_very_satisfied_blue_24dp.png);
+}
+
+
+.option-name {
+    color: #808080;
+}
+
+.options {
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+    position: relative;
+    -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
+    -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
+    filter: brightness(1.8) grayscale(1) opacity(.7);
+    margin-bottom: 0; /*override label margin bottom*/
+    height: 30px;
+    width: 30px;
+    top: 0.5em; /*pushing down depending on size of fonts*/
+
+    border: dotted 1px var(--main-color);
+    border-radius: 50%
+}
+
+.selector:checked ~ .option-name {
+    color: var(--main-color);
+}
+
+.selector:checked + .FEEBACK01 {
+    border: solid 1px green;
+    -webkit-filter: none;
+    -moz-filter: none;
+    filter: none;
+    -webkit-animation: selected 1s ease-out;
+    -moz-animation: selected 1s ease-out;
+    animation: selected 1s ease-out;
+}
+
+@-moz-keyframes selected {
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes selected {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes selected {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+.selector:checked + .FEEBACK02 {
+    border: solid 1px green;
+    -webkit-filter: none;
+    -moz-filter: none;
+    filter: none;
+    -webkit-animation: selected 1s ease-in;
+    -moz-animation: selected 1s ease-in;
+    animation: selected 1s ease-in;
+}
+
+.selector:checked + .FEEBACK03 {
+    border: solid 1px green;
+    -webkit-filter: none;
+    -moz-filter: none;
+    filter: none;
+    -webkit-animation: selected 1s ease-in;
+    -moz-animation: selected 1s ease-in;
+    animation: selected 1s ease-in;
+}
+
+.selector:checked + .FEEBACK04 {
+    border: solid 1px green;
+    -webkit-filter: none;
+    -moz-filter: none;
+    filter: none;
+    -webkit-animation: selected 1s ease-in;
+    -moz-animation: selected 1s ease-in;
+    animation: selected 1s ease-in;
+}
+
+.selector:checked + .FEEBACK05 {
+    border: solid 1px green;
+    -webkit-filter: none;
+    -moz-filter: none;
+    filter: none;
+    -webkit-animation: selected 1s ease-in;
+    -moz-animation: selected 1s ease-in;
+    animation: selected 1s ease-in;
+}

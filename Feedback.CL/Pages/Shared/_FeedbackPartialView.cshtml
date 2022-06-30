@@ -1,0 +1,106 @@
+﻿@model Feedback.CL.Models.FeedbackModel
+@using Microsoft.AspNetCore.Components
+@using Microsoft.Extensions.Configuration
+@using Microsoft.Extensions.Options
+@using static Feedback.CL.Models.FeedbackModel
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<p>FeedbackPartialView</p>
+<form action="https://localhost:7269/WeatherForecast" method="post">
+
+    @*@{var numList = Enum.GetValues(typeof(FeedbackEmojiEnum));}
+    <table>
+        <tr>
+    @foreach (object radiotext in numList)
+    {
+        <td>
+            <label style="margin-right:120px;">
+                <input type="radio" name="feedback" value="@radiotext" class="selector"   id=@radiotext  />                    
+                <label for=@radiotext.ToString() class="@radiotext.ToString() options">  @radiotext.ToString()</label>      
+            </label>
+            
+        </td>
+    }*@
+    </tr>
+    </table>
+    <div>
+    <table>
+        <tr>
+            <td>
+                <label style="margin-right:120px;">
+                    <input type="radio" name="FeedbackRating" value="FEEBACK01" class="selector"   id="FeedbackRating"  />
+                    <label for="FEEBACK01" class="FEEBACK01 options"/>    
+                </label>
+            </td>
+            <td>
+                <label style="margin-right:120px;">
+                <input   type="radio" name="FeedbackRating" value="FEEBACK02" class="selector"    />
+                <label for="FEEBACK02" class="FEEBACK02 options"/>
+
+                </label>
+            </td>
+            <td>
+                <label style="margin-right:120px;">
+                    <input type="radio" name="FeedbackRating" value="FEEBACK03"  class="selector"  />
+                    <label for="FEEBACK03" class="FEEBACK03 options"/>    
+                </label>
+            </td>
+            <td>
+                <label style="margin-right:120px;">
+                <input   type="radio" name="FeedbackRating" class="selector"   value="FEEBACK04"  />
+                <label for="FEEBACK04" class="FEEBACK04 options"/>
+
+                </label>
+            </td>
+            <td>
+                <label style="margin-right:120px;">
+                <input   type="radio" name="FeedbackRating" class="selector"   value="FEEBACK05"  />
+                <label for="FEEBACK05" class="FEEBACK05 options"/>
+
+                </label>
+            </td>           
+        </tr>
+        <tr>
+            <td>
+                <span class="ml-2 mr-2 option-name">Very Dissatisfied</span>
+            </td>
+            <td>
+                <span class="ml-2 mr-2 option-name">Dissatisfied</span>
+            </td>
+            <td>
+                <span class="ml-2 mr-2 option-name">Neutral</span>
+            </td>
+            <td>
+                <span class="ml-2 mr-2 option-name">Satisfied</span>
+            </td>
+            <td>
+                <span class="ml-2 mr-2 option-name">Very Satisfied</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5">
+                <textarea name="Comment">@Model.Comment</textarea>
+            </td>
+        </tr>
+        <tr>
+             <td colspan="5">
+                
+                <input   type="text" name="AuthToken" style="display:none"  value="XXXX"/>
+                <input   type="text" name="PostingUrl" style="display:none" value="XXXX"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5">
+                <button type="submit">Submit</button>
+            </td>
+        </tr>
+    </table>
+
+
+    </div>
+</form>
