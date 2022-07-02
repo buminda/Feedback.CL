@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Feedback.Shared\Feedback.Shared.csproj" />
+    <ProjectReference Include="..\Feeedback.Service\Feeedback.Service.csproj" />
   </ItemGroup>
 
 </Project>

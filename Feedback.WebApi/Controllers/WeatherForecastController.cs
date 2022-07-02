@@ -1,4 +1,6 @@
 using Feedback.CL.Models;
+using Feeedback.Service.DAL;
+using Feeedback.Service.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Feedback.WebApi.Controllers
@@ -7,16 +9,18 @@ namespace Feedback.WebApi.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
+        private IDataAccess _dataAccess;
         private static readonly string[] Summaries = new[]
         {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
+            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+        };
 
         private readonly ILogger<WeatherForecastController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IDataAccess dataAccess)
         {
             _logger = logger;
+            _dataAccess = dataAccess;
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
@@ -32,9 +36,14 @@ namespace Feedback.WebApi.Controllers
         }
 
         [HttpPost(Name = "PostFeedback")]
-        public void Post([FromForm] FeedbackModel weather)
+        public void Post([FromForm] FeedbackModel feedbackModel)
         {
-            Console.WriteLine("dsadsadsadsad");
+            FeedbackData feedbackData = new FeedbackData();
+            feedbackData.Feedback = feedbackModel.Comment;
+            feedbackData.FeedbackRating = "2";
+            feedbackData.Username = "username";
+            feedbackData.SessionId = Guid.NewGuid().ToString();
+            _dataAccess.feedbackRepository.SaveFeedback(feedbackData);
         }
     }
 }

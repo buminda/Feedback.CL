@@ -11,23 +11,8 @@
 }
 
 <p>FeedbackPartialView</p>
-<form action="https://localhost:7269/WeatherForecast" method="post">
-
-    @*@{var numList = Enum.GetValues(typeof(FeedbackEmojiEnum));}
-    <table>
-        <tr>
-    @foreach (object radiotext in numList)
-    {
-        <td>
-            <label style="margin-right:120px;">
-                <input type="radio" name="feedback" value="@radiotext" class="selector"   id=@radiotext  />                    
-                <label for=@radiotext.ToString() class="@radiotext.ToString() options">  @radiotext.ToString()</label>      
-            </label>
-            
-        </td>
-    }*@
-    </tr>
-    </table>
+<form action="https://localhost:7269/WeatherForecast" method="post">   
+    
     <div>
     <table>
         <tr>
