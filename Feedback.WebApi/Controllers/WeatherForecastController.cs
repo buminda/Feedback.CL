@@ -1,4 +1,4 @@
-using Feedback.CL.Models;
+using Feedback.Shared.Models;
 using Feeedback.Service.DAL;
 using Feeedback.Service.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -36,14 +36,23 @@ namespace Feedback.WebApi.Controllers
         }
 
         [HttpPost(Name = "PostFeedback")]
-        public void Post([FromForm] FeedbackModel feedbackModel)
+        public RedirectResult Post([FromForm] FeedbackModel feedbackModel)
         {
-            FeedbackData feedbackData = new FeedbackData();
-            feedbackData.Feedback = feedbackModel.Comment;
-            feedbackData.FeedbackRating = "2";
-            feedbackData.Username = "username";
-            feedbackData.SessionId = Guid.NewGuid().ToString();
-            _dataAccess.feedbackRepository.SaveFeedback(feedbackData);
+            try
+            {
+                //Please change hard coded values
+                FeedbackData feedbackData = new FeedbackData();
+                feedbackData.Feedback = feedbackModel.Comment;
+                feedbackData.FeedbackRating = "2";
+                feedbackData.Username = "username";
+                feedbackData.SessionId = Guid.NewGuid().ToString();
+                _dataAccess.feedbackRepository.SaveFeedback(feedbackData);
+            }
+            catch(Exception e)
+            {
+                return Redirect("https://localhost:7203/Feedback?response=error");
+            }            
+            return Redirect("https://localhost:7203/Feedback?response=success");
         }
     }
 }

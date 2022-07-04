@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Feedback.CL.Models
+namespace Feedback.Shared.Models
 {
     public class FeedbackEmoji
     {

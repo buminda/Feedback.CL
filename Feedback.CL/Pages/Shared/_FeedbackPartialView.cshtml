@@ -1,8 +1,8 @@
-﻿@model Feedback.CL.Models.FeedbackModel
+﻿@*@model Feedback.Shared.Pages.Shared._FeedbackPartialViewModel*@
+@model Feedback.Shared.Models.FeedbackModel
 @using Microsoft.AspNetCore.Components
 @using Microsoft.Extensions.Configuration
 @using Microsoft.Extensions.Options
-@using static Feedback.CL.Models.FeedbackModel
 
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -10,9 +10,19 @@
 @{
 }
 
-<p>FeedbackPartialView</p>
-<form action="https://localhost:7269/WeatherForecast" method="post">   
-    
+@if ( @Model.Response != null &&  @Model.Response.Equals("success",StringComparison.InvariantCultureIgnoreCase) )
+{
+    <p>Partial View Success Page</p>    
+}
+else if ( @Model.Response != null && @Model.Response.Equals("error",StringComparison.InvariantCultureIgnoreCase) )
+{
+    <p>Partial View Error Page</p>    
+}
+else
+{
+    @*<form action="https://localhost:7269/WeatherForecast" method="post">   *@
+        <form action="@Model.PostingUrl" method="post">
+
     <div>
     <table>
         <tr>
@@ -76,7 +86,9 @@
              <td colspan="5">
                 
                 <input   type="text" name="AuthToken" style="display:none"  value="XXXX"/>
-                <input   type="text" name="PostingUrl" style="display:none" value="XXXX"/>
+                <input   type="text" name="PostingUrl" style="display:none" value="@Model.PostingUrl"/>
+                <input   type="text" name="CallbackUrl" style="display:none" value="@Model.CallbackUrl"/>
+                <input   type="text" name="Response" style="display:none" value="XXXX"/>
             </td>
         </tr>
         <tr>
@@ -89,3 +101,10 @@
 
     </div>
 </form>
+@if (ViewData["JavaScript"] != null)
+    {
+        <script>
+            @Html.Raw(ViewData["JavaScript"])
+        </script>
+    }
+}

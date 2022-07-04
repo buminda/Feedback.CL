@@ -1,9 +1,95 @@
 ﻿@page
-@model FeedbackViewModel
+@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
+@model FeedbackModel
 @{
     ViewData["Title"] = "Feedback";
 }
+
 <h1>@ViewData["Title"]</h1>
 
+@Html.Partial("_FeedbackPartialView", Model._feedbackModel)
 
-    @Html.Partial("_FeedbackPartialView", Model._feedbackModel)
+@*<form action="@Model.PostingUrl" method="post" >     
+    <div>
+    <table>
+        <tr>
+            <td>
+                <label style="margin-right:120px;">
+                    <input type="radio" name="FeedbackRating" value="FEEBACK01" class="selector"   id="FeedbackRating"  />
+                    <label for="FEEBACK01" class="FEEBACK01 options"/>    
+                </label>
+            </td>
+            <td>
+                <label style="margin-right:120px;">
+                <input   type="radio" name="FeedbackRating" value="FEEBACK02" class="selector"    />
+                <label for="FEEBACK02" class="FEEBACK02 options"/>
+
+                </label>
+            </td>
+            <td>
+                <label style="margin-right:120px;">
+                    <input type="radio" name="FeedbackRating" value="FEEBACK03"  class="selector"  />
+                    <label for="FEEBACK03" class="FEEBACK03 options"/>    
+                </label>
+            </td>
+            <td>
+                <label style="margin-right:120px;">
+                <input   type="radio" name="FeedbackRating" class="selector"   value="FEEBACK04"  />
+                <label for="FEEBACK04" class="FEEBACK04 options"/>
+
+                </label>
+            </td>
+            <td>
+                <label style="margin-right:120px;">
+                <input   type="radio" name="FeedbackRating" class="selector"   value="FEEBACK05"  />
+                <label for="FEEBACK05" class="FEEBACK05 options"/>
+
+                </label>
+            </td>           
+        </tr>
+        <tr>
+            <td>
+                <span class="ml-2 mr-2 option-name">Very Dissatisfied</span>
+            </td>
+            <td>
+                <span class="ml-2 mr-2 option-name">Dissatisfied</span>
+            </td>
+            <td>
+                <span class="ml-2 mr-2 option-name">Neutral</span>
+            </td>
+            <td>
+                <span class="ml-2 mr-2 option-name">Satisfied</span>
+            </td>
+            <td>
+                <span class="ml-2 mr-2 option-name">Very Satisfied</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5">
+                <textarea name="Comment">@Model.Comment</textarea>
+            </td>
+        </tr>
+        <tr>
+             <td colspan="5">
+                
+                <input   type="text" name="AuthToken" style="display:none"  value="XXXX"/>
+                <input   type="text" name="PostingUrl" style="display:none" value="XXXX"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5">
+                <input  type="submit" value="Submit" />
+            </td>
+        </tr>
+    </table>
+
+
+    </div>
+</form>
+
+    @if (ViewData["JavaScript"] != null)
+    {
+        <script>
+            @Html.Raw(ViewData["JavaScript"])
+        </script>
+    }*@
